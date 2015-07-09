@@ -26,8 +26,8 @@ and what you should write is the sayHi function that makes the code above work,
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
-var first = function(arr, cb){ 
-    cb(arr[0]);
+var first = function(arr, callback){ 
+    callback(arr[0]);
 };
 
 first(names, function(firstName){
@@ -39,11 +39,12 @@ first(names, function(firstName){
 
   //Code Here for last
 
-var last = function(arr, cb){
+var names = ['Tyler', 'Jacob', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+var last = function(arr, callback){
   callback(arr[arr.length -1]);
 };
 
-var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
   console.log('The last name in names is ', lastName);
 });
@@ -54,7 +55,7 @@ last(names, function(lastName){
   //Code Here for multiply
 var multiply = function(num1, num2) {
   return num1 * num2;
-}
+};
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -65,17 +66,19 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+var names = ['Tyler', 'Jacob', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+//use var contains = function here if you only want to look below var names 
+
 var contains = function(arr, value, callback) { // arr = contains
   var result = false;                          // sets result to 0 or false
     for (var i = 0; i < arr.length; i++) {    //loop through array
-      if (arr[i] === value) {               //test to see if 
-        result = true;
+      if (arr[i] === value) {               //test to see what the result value is equal to
+        result = true;                    //shows result for true below
       }
    }
    callback(result);
 };
-
-var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -85,34 +88,41 @@ contains(names, 'Colt', function(result){
   }
 });
 
+// use function contains for the function to work here as this type of function looks above and below
+
+// function contains(arr, value, callback){ // arr = contains
+//   var result = false;                          // sets result to 0 or false
+//     for (var i = 0; i < arr.length; i++) {    //loop through array
+//       if (arr[i] === value) {               //test to see if 
+//         result = true;
+//       }
+//    }
+//    callback(result);
+};
+
+
+
 
 //NEXT PROBLEM ===============================================================
 
-
-
-    //Code Here for uniq
-var uniq = function(arr, callback) {
-  var myNames =[];
-  for (var i = 0; i < arr.length; I++) {
-    if (arr.indexof(myNames) !== -1) {
-      arr.push(myNames);
-      callback(uniqArr);
-    }
-  }
-};
+  //Code Here for each
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+var uniq = function(arr, callback){
+var uniqueNames = [];
+    for(var i in names){
+        if(uniqueNames.indexOf(names[i]) === -1){
+            uniqueNames.push(names[i]);
+        }
+    }
+callback(uniqueNames);
+};
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
 
-
-
-
-
 //NEXT PROBLEM ===============================================================
-
-
 
     //Code Here for each
 var each = function(arr, callback){
